@@ -1,0 +1,35 @@
+{
+	"folders": [
+		{
+			"path": "lab1"
+		},
+		{
+			"path": "lab2"
+		},
+		{
+			"path": "lab3"
+		},
+		{
+			"path": "lab4"
+		},
+		{
+			"path": "lab5"
+		},
+		{
+			"path": "lab6"
+		},
+		{
+			"name": "experimental_vscode_workspace_v1",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"java.project.sourcePaths": [
+			"src"
+		],
+		"java.project.outputPath": "bin",
+		"java.project.referencedLibraries": [
+			"lib/**/*.jar"
+		]
+	}
+}
