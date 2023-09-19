@@ -30,6 +30,9 @@
 		"java.project.outputPath": "bin",
 		"java.project.referencedLibraries": [
 			"lib/**/*.jar"
-		]
+		],
+		"java.implementationsCodeLens.enabled": false,
+		"java.referencesCodeLens.enabled": false
 	}
+	
 }
