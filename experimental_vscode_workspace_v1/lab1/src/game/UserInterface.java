@@ -8,31 +8,24 @@ public class UserInterface
         JOptionPane.showMessageDialog(null, msg);
     }
 
-    public static int askForInt(String msg, Board board) 
+    public static int askForInt(String msg) 
     {
         String tempInput = JOptionPane.showInputDialog(null, msg);
 
-        if (tempInput == null) 
+        if (tempInput == null)
         {
             return -2;
         }
-        try 
+        else{
+                    try 
         {
             int inputValue = Integer.parseInt(tempInput);
-
-            if ((inputValue == 1 || inputValue == 2) && inputValue <= board.getSticks())
-            {
-                return inputValue;
-            } 
-            else 
-            {
-                printMessage("Invalid input, try again.");
-                return -1;
-            }
+            return inputValue;
         } catch (NumberFormatException e) 
         {
-            printMessage("Invalid input, try again.");
             return -1;
         }
+        }
+
     }   
 }

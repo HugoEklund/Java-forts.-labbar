@@ -1,8 +1,10 @@
 package game;
 
-public class TakePinsGame extends Board
+import javax.swing.JOptionPane;
+
+public class TakePinsGame
 {
-    public static void main(String[] args) throws InterruptedException
+    public static void main(String[] args)
     {
         Board board = new Board();
         boolean playerTurn = true;
@@ -14,31 +16,22 @@ public class TakePinsGame extends Board
 
         while (board.getSticks() > 0)
         {
-            UserInterface.printMessage("There are " + board.getSticks() + " sticks left on the board.");
-
             if (playerTurn)
             {
                 sticksTaken = humanPlayer.takeSticks(board);
-
-                if (sticksTaken == -2)
-                {
-                    UserInterface.printMessage("Program terminated.");
-                    System.exit(0);
-                }
 
                 while (sticksTaken == -1)
                 {
                     sticksTaken = humanPlayer.takeSticks(board);
                 }
-                board.takeSticks(sticksTaken);
                 UserInterface.printMessage(humanPlayer.getUserId() + " took " + sticksTaken + " stick(s).");
             }
-
             else
             {
                 sticksTaken = newCompPlayer.takeSticks(board);
-                board.takeSticks(sticksTaken);
+
                 UserInterface.printMessage(newCompPlayer.getUserId() + " took " + sticksTaken + " stick(s).");
+                UserInterface.printMessage("There are " + board.getSticks() + " sticks left on the board.");
             }
 
             if(board.getSticks() == 0)

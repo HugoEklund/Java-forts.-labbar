@@ -4,7 +4,6 @@ import java.util.Random;
 public class ComputerPlayer extends Player
 {
     private Random rng;
-    private static final int finalSum = 2;
 
     public ComputerPlayer(String compID)
     {
@@ -14,8 +13,8 @@ public class ComputerPlayer extends Player
 
     public @Override int takeSticks(Board board)
     {
-        int potentialMove = Math.min(board.getSticks(), finalSum);
-        return (rng.nextInt(potentialMove) + 1);  
+        int potentialMove = Math.min(board.getSticks(), 2);
+        return board.takeSticks(rng.nextInt(potentialMove) + 1);  
     }
     
 }

@@ -9,7 +9,7 @@ public class NewCompPlayer extends Player
 
     public @Override int takeSticks(Board board)
     {
-        return 1;
+        return board.takeSticks(1);
     }
     
 }
