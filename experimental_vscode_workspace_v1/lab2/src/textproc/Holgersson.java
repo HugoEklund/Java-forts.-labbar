@@ -19,21 +19,17 @@ public class Holgersson
 		Scanner s = new Scanner(new File("nilsholg.txt"));
 
 		s.findWithinHorizon("\uFEFF", 1);
-		s.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+"); // se handledning
+		s.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+");
 
 		while (tempScanner.hasNext())
 		{
 			avoidWords.add(tempScanner.next().toLowerCase());
 		}
-
 		tempScanner.close();
-		
-		tempList.add(new MultiWordCounter(REGIONS));
-		tempList.add(new SingleWordCounter("nils"));
-		tempList.add(new SingleWordCounter("norge"));
+
 		tempList.add(new GeneralWordCounter(avoidWords));
-		
-		while (s.hasNext()) 
+
+		while (s.hasNext())
 		{
 			String word = s.next().toLowerCase();
 
@@ -42,7 +38,6 @@ public class Holgersson
 				i.process(word);
 			}
 		}
-
 		s.close();
 
 		for (TextProcessor i : tempList)

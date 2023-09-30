@@ -14,9 +14,9 @@ public class GeneralWordCounter implements TextProcessor
 
     public void process(String w)
     {
-		if (tempMap.containsKey(w) && !tempSet.contains(w))
+		if (!tempSet.contains(w))
 		{
-			tempMap.put(w, tempMap.get(w) + 1);
+			tempMap.put(w, tempMap.getOrDefault(w, 0) + 1);
 		}
     }
 
