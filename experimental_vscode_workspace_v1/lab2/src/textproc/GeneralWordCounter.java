@@ -8,7 +8,7 @@ public class GeneralWordCounter implements TextProcessor
 
     public GeneralWordCounter(Set<String> tempSet)
     {
-        tempMap = new HashMap<>();
+        tempMap = new TreeMap<>();
         this.tempSet = tempSet;
     }
 
@@ -22,9 +22,21 @@ public class GeneralWordCounter implements TextProcessor
 
     public void report()
     {
-        for (Map.Entry<String, Integer> i : tempMap.entrySet())
+        Set<Map.Entry<String, Integer>> wordSet = tempMap.entrySet();
+        List<Map.Entry<String, Integer>> wordList = new ArrayList<>(wordSet);
+
+        wordList.sort((temp1, temp2) -> 
         {
-            if (i.getValue() >= 200)
+            if (temp2.getValue().compareTo(temp1.getValue()) == 0)
+            {
+                return temp1.getKey().compareTo(temp2.getKey());
+            }
+            return temp2.getValue().compareTo(temp1.getValue());
+        });
+
+        for (Map.Entry<String, Integer> i : wordList)
+        {
+            if (i.getValue() > 150)
             {
                 System.out.println(i.getKey() + ": " + i.getValue());
             }

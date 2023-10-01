@@ -7,7 +7,7 @@ public class MultiWordCounter implements TextProcessor
 
     public MultiWordCounter(String[] tempArray)
     {
-        tempMap = new HashMap<>();
+        tempMap = new TreeMap<>();
 
         for (String i : tempArray)
         {

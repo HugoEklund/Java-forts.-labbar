@@ -13,6 +13,8 @@ public class Holgersson
 
 	public static void main(String[] args) throws FileNotFoundException 
 	{
+		long t0 = System.nanoTime();
+
 		ArrayList<TextProcessor> tempList = new ArrayList<TextProcessor>();
 		Set<String> avoidWords = new HashSet<>();
 		Scanner tempScanner = new Scanner(new File("undantagsord.txt"));
@@ -44,5 +46,8 @@ public class Holgersson
 		{
 			i.report();
 		}
+
+			long t1 = System.nanoTime();
+			System.out.println("tid: " + (t1 - t0) / 1000000.0 + " ms");
 	}
 }
