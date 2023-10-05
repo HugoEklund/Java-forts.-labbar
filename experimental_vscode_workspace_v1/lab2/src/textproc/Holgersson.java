@@ -17,8 +17,8 @@ public class Holgersson
 
 		ArrayList<TextProcessor> tempList = new ArrayList<TextProcessor>();
 		Set<String> avoidWords = new HashSet<>();
-		Scanner tempScanner = new Scanner(new File("undantagsord.txt"));
-		Scanner s = new Scanner(new File("nilsholg.txt"));
+		Scanner tempScanner = new Scanner(new File("C:\\Users\\eklun\\Documents\\GitHub\\Java-forts.-labbar\\experimental_vscode_workspace_v1\\lab2\\undantagsord.txt"));
+		Scanner s = new Scanner(new File("C:\\Users\\eklun\\Documents\\GitHub\\Java-forts.-labbar\\experimental_vscode_workspace_v1\\lab2\\nilsholg.txt"));
 
 		s.findWithinHorizon("\uFEFF", 1);
 		s.useDelimiter("(\\s|,|\\.|:|;|!|\\?|'|\\\")+");
