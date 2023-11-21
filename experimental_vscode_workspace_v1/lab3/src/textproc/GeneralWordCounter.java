@@ -35,7 +35,7 @@ public class GeneralWordCounter implements TextProcessor
 
         for (Map.Entry<String, Integer> i : wordList)
         {
-            if (i.getValue() > 150)
+            if (i.getValue() > 200)
             {
                 System.out.println(i.getKey() + ": " + i.getValue());
             }
