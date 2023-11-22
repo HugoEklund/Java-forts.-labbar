@@ -58,9 +58,7 @@ public class Mountain extends Fractal
 
         if (sideMap.containsKey(aSide))
         {
-            Point tempPoint = sideMap.get(aSide);
-            //sideMap.remove(aSide);
-            return tempPoint;
+            return sideMap.get(aSide);
         }
         else
         {

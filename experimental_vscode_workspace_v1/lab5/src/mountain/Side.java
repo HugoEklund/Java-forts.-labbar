@@ -1,6 +1,6 @@
 package mountain;
 
-public class Side 
+public class Side
 {
     private Point p1, p2;
 
@@ -11,13 +11,13 @@ public class Side
     }
 
     @Override
-    public int hashCode() 
+    public int hashCode()
     {
         return p1.hashCode() + p2.hashCode();
     }
     
     @Override
-    public boolean equals(Object obj) 
+    public boolean equals(Object obj)
     {
         Side aSide = (Side) obj;
 
