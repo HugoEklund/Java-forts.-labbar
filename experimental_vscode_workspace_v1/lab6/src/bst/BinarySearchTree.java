@@ -199,7 +199,7 @@ public class BinarySearchTree<E extends Comparable<E>>
 		int midOfTree = (first + last) / 2;
 		BinaryNode<E> aNode = new BinaryNode<>(); // idk
 		aNode.left = buildTree(sorted, first, midOfTree);
-		aNode.left = buildTree(sorted, midOfTree, last);
+		aNode.right = buildTree(sorted, midOfTree, last);
 
 		return aNode;
 	}
