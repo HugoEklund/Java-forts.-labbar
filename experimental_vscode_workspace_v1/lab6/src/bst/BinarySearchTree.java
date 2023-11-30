@@ -196,9 +196,12 @@ public class BinarySearchTree<E extends Comparable<E>>
 	 */
 	private BinaryNode<E> buildTree(ArrayList<E> sorted, int first, int last) 
 	{
+		int midOfTree = (first + last) / 2;
+		BinaryNode<E> aNode = new BinaryNode<>(); // idk
+		aNode.left = buildTree(sorted, first, midOfTree);
+		aNode.left = buildTree(sorted, midOfTree, last);
 
-
-		return null;
+		return aNode;
 	}
 
 	static class BinaryNode<E> 
