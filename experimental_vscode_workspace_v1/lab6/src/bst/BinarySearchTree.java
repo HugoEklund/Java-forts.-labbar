@@ -2,7 +2,6 @@ package bst;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 
 public class BinarySearchTree<E extends Comparable<E>> 
 {
@@ -197,9 +196,9 @@ public class BinarySearchTree<E extends Comparable<E>>
 	private BinaryNode<E> buildTree(ArrayList<E> sorted, int first, int last) 
 	{
 		int midOfTree = (first + last) / 2;
-		BinaryNode<E> aNode = new BinaryNode<>(); // idk
-		aNode.left = buildTree(sorted, first, midOfTree);
-		aNode.right = buildTree(sorted, midOfTree, last);
+		BinaryNode<E> aNode = new BinaryNode<>(sorted.get(midOfTree));
+		aNode.left = buildTree(sorted, first, midOfTree - 1);
+		aNode.right = buildTree(sorted, midOfTree + 1, last);
 
 		return aNode;
 	}
