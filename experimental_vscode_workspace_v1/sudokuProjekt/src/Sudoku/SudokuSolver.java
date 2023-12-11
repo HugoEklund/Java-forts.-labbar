@@ -1,6 +1,8 @@
-public interface SudokuSolver
+package Sudoku;
+
+public interface  SudokuSolver 
 {
-    /**
+	/**
      * Set sudoku board, numbers 1-9 are fixed values, 0 is unsolved. 
      * @param board a board to copy values from
      * @throws IllegalArgumentException if board is invalid, e.g. not 9x9
