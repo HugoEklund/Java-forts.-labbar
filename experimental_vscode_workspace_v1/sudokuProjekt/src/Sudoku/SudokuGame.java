@@ -15,10 +15,8 @@ public class SudokuGame implements SudokuSolver
      * @throws IllegalArgumentException if board is invalid, e.g. not 9x9
      */
 	@Override
-	public void setBoard(int[][] board) 
+	public void setBoard(int[][] board)
 	{
-		
-		
 //	    for (int i = 0; i < board.length; i++) {
 //	        for (int j = 0; j < board[i].length; j++) {
 //	        	
@@ -34,29 +32,30 @@ public class SudokuGame implements SudokuSolver
 //	    }
 		
 	    this.sudokuBoard = board;
-		
 	}
 	   /**
      * Get a copy of the sudoku board
      */
 
 	@Override
-	public int[][] getBoard() 
+	public int[][] getBoard()
 	{
 		int[][] tempBoard = new int [9][9];
 		tempBoard = this.sudokuBoard.clone();
 		return tempBoard;
-		
 	}
 
 	@Override
-	public boolean solve() {
+	public boolean solve() 
+	{
 	    return recursiveSolve(0, 0);
 	}
 
-	private boolean recursiveSolve(int row, int col) {
+	private boolean recursiveSolve(int row, int col) 
+	{
 		  // Base case: if we have gone beyond the last row, we have successfully filled all cells
-        if (row == 9) {
+        if (row == 9)
+		{
             return true;
         }
 
@@ -64,23 +63,30 @@ public class SudokuGame implements SudokuSolver
         int nextRow;
         int nextCol;
 
-        if (col == 8) {
+        if (col == 8)
+		{
             nextRow = row + 1;
             nextCol = 0;
-        } else {
+        } 
+		else 
+		{
             nextRow = row;
             nextCol = col + 1;
         }
 
         // Case 1: If the current cell is not filled
-        if (sudokuBoard[row][col] == 0) {
+        if (sudokuBoard[row][col] == 0)
+		{
             // Try filling the current cell with numbers 1-9
-            for (int num = 1; num <= 9; num++) {
-                if (isLegal(row, col, num)) {
-                    sudokuBoard[row][col] = num; // Place the number
+            for (int i = 1; i <= 9; i++) 
+			{
+                if (isLegal(row, col, i)) 
+				{
+                    sudokuBoard[row][col] = i; // Place the number
 
                     // Recursively try to solve the next cell
-                    if (recursiveSolve(nextRow, nextCol)) {
+                    if (recursiveSolve(nextRow, nextCol)) 
+					{
                         return true; // If successful, return true
                     }
 
@@ -90,37 +96,46 @@ public class SudokuGame implements SudokuSolver
             }
             // If no number worked in this position, backtrack
             return false;
-        } else {
+        } 
+		else 
+		{
             // Case 2: If the current cell is already filled, check legality and move to the next cell
             return recursiveSolve(nextRow, nextCol);
         }
 	}
-	@Override
-	public boolean isLegal(int row, int col, int nbr) {
 
-		
-		for (int i = 0; i < 9; i++) {
-	        if (sudokuBoard[row][i] == nbr) {
+	@Override
+	public boolean isLegal(int row, int col, int nbr) 
+	{
+		for (int i = 0; i < 9; i++)
+		{
+	        if (sudokuBoard[row][i] == nbr) 
+			{
 	            return false;
 	        }
 	    }
 
-	    for (int i = 0; i < 9; i++) {
-	        if (sudokuBoard[i][col] == nbr) {
+	    for (int i = 0; i < 9; i++) 
+		{
+	        if (sudokuBoard[i][col] == nbr) 
+			{
 	            return false;
 	        }
 	    }
 
 	    int kvadrantRad = row - row % 3;
 	    int kvadrantKol =  col - col % 3;
-	    for (int i = 0; i < 3; i++) {
-	        for (int j = 0; j < 3; j++) {
-	            if (sudokuBoard[kvadrantRad + i][kvadrantKol + j] == nbr) {
+
+	    for (int i = 0; i < 3; i++) 
+		{
+	        for (int j = 0; j < 3; j++) 
+			{
+	            if (sudokuBoard[kvadrantRad + i][kvadrantKol + j] == nbr) 
+				{
 	                return false;
 	            }
 	        }
 	    }
-
 	    return true;
 	}
 
@@ -139,15 +154,14 @@ public class SudokuGame implements SudokuSolver
 	}
 
 	@Override
-	public void clear() 
+	public void clear()
 	{
 		for (int i = 0; i < sudokuBoard.length; i++) 
 		{
-			for (int j = 0; j< sudokuBoard[i].length; j++) 
+			for (int j = 0; j < sudokuBoard[i].length; j++) 
 			{
 				sudokuBoard[i][j] = 0;
 			}
 		}
 	}
-
 }

@@ -1,4 +1,4 @@
-package sudokuTest;
+package SudokuTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import Sudoku.SudokuGame;
 
-class sudokuGameTester 
+class SudokuGameTester 
 {
 	private SudokuGame sudoku;
 	private int [][] sudokuBoard;
@@ -54,7 +54,7 @@ class sudokuGameTester
 		}	
 	}
 	@Test
-	void testGetBoard() 
+	void testGetBoard()
 	{
 		sudokuBoard [1][1] = 1;
 		sudokuBoard [4][5] = 2;
@@ -82,9 +82,7 @@ class sudokuGameTester
 		
 		sudoku.set(0, 1, 1);
 		assertFalse(sudoku.solve());
-			
 	}
-	
 	
 	@Test
 	void testisLegal() 
@@ -131,7 +129,7 @@ class sudokuGameTester
 	}
 
 	@Test
-	void testLöslig()
+	void testOlöslig()
 	{
 		int[][] board = 
 		{
