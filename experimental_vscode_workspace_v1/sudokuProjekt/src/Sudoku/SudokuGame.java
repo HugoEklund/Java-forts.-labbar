@@ -64,14 +64,14 @@ public class SudokuGame implements SudokuSolver
         if (sudokuBoard[row][col] == 0)
 		{
             // Try filling the current cell with numbers 1-9
-            for (int i = 1; i <= 9; i++) 
+            for (int i = 1; i <= 9; i++)
 			{
-                if (isLegal(row, col, i)) 
+                if (isLegal(row, col, i))
 				{
                     sudokuBoard[row][col] = i; // Place the number
 
                     // Recursively try to solve the next cell
-                    if (recursiveSolve(nextRow, nextCol)) 
+                    if (recursiveSolve(nextRow, nextCol))
 					{
                         return true; // If successful, return true
                     }
@@ -83,10 +83,14 @@ public class SudokuGame implements SudokuSolver
             // If no number worked in this position, backtrack
             return false;
         } 
-		else 
+		else
 		{
             // Case 2: If the current cell is already filled, check legality and move to the next cell
-            return recursiveSolve(nextRow, nextCol);
+			if (isLegal(row, col, sudokuBoard[row][col]))
+			{
+           		return true;
+			}
+			return recursiveSolve(nextRow, nextCol);
         }
 	}
 
@@ -110,13 +114,13 @@ public class SudokuGame implements SudokuSolver
 	    }
 
 	    int kvadrantRad = row - row % 3;
-	    int kvadrantKol =  col - col % 3;
+	    int kvadrantKol = col - col % 3;
 
-	    for (int i = 0; i < 3; i++) 
+	    for (int i = 0; i < 3; i++)
 		{
-	        for (int j = 0; j < 3; j++) 
+	        for (int j = 0; j < 3; j++)
 			{
-	            if (sudokuBoard[kvadrantRad + i][kvadrantKol + j] == nbr) 
+	            if (sudokuBoard[kvadrantRad + i][kvadrantKol + j] == nbr)
 				{
 	                return false;
 	            }
@@ -144,7 +148,7 @@ public class SudokuGame implements SudokuSolver
 	{
 		for (int i = 0; i < sudokuBoard.length; i++) 
 		{
-			for (int j = 0; j < sudokuBoard[i].length; j++) 
+			for (int j = 0; j < sudokuBoard.length; j++) 
 			{
 				sudokuBoard[i][j] = 0;
 			}

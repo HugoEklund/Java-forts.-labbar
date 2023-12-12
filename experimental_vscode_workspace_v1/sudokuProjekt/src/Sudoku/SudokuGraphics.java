@@ -1,18 +1,7 @@
 package Sudoku;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
+import java.awt.*;
+import javax.swing.*;
 
 public class SudokuGraphics
 {   
@@ -39,8 +28,8 @@ public class SudokuGraphics
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Container pane = frame.getContentPane();
 
-
         JPanel aBoard = createBoard(aGame.getBoard());
+        
         JPanel viewPanel = new JPanel(new FlowLayout());
 
         JButton solveButton = new JButton("Solve");
@@ -48,9 +37,9 @@ public class SudokuGraphics
 
         solveButton.addActionListener(x ->
         {
-            for (int i = 0; i < boardInts.length; i++) 
+            for (int i = 0; i < boardInts.length; i++)
             {
-                for (int j = 0; j < boardInts.length; j++) 
+                for (int j = 0; j < boardInts.length; j++)
                 {
                     try
                     {
@@ -58,30 +47,58 @@ public class SudokuGraphics
                         {
                             boardInts[i][j] = 0;
                         }
-                        int tempParse = Integer.parseInt(boardStrings[i][j].getText());
-
-                        if (tempParse > 0 && tempParse < 9)
-                        {
-                            boardInts[i][j] = tempParse;
-                        }
                         else
                         {
-                            throw new IllegalArgumentException();
+                            int tempParse = Integer.parseInt(boardStrings[i][j].getText());
+                            if (tempParse > 0 && tempParse < 10)
+                            {
+                                boardInts[i][j] = tempParse;
+                            }
+                            else
+                            {
+                                throw new NumberFormatException();
+                            }
                         }
                     }
-                    catch (IllegalArgumentException e)
+                    catch (NumberFormatException e)
                     {
-                        System.out.println("Bara 1-9 tillåts" + boardStrings[i][j]);
+                        JOptionPane.showMessageDialog(frame, "Inkorrekt input. Rad: "+ (i) + " Col: " + (j));
+                        return;
                     }
                 }
             }
+
+            aGame.setBoard(boardInts);
             aGame.solve();
+
+            for (int i = 0; i < boardInts.length; i++) 
+            {
+                for (int j = 0; j < boardInts.length; j++) 
+                {
+                    boardStrings[i][j].setText(String.valueOf(boardInts[i][j]));
+                }
+            }
+
+            if (aGame.solve())
+            {
+                JOptionPane.showMessageDialog(frame, "Det gick att lösa");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(frame, "Det gick inte att lösa");
+            }
         });
 
         clearButton.addActionListener(x ->
         { 
             aGame.clear();
-            aGame.getBoard();
+            for (int i = 0; i < boardInts.length; i++) 
+            {
+                for (int j = 0; j < boardInts.length; j++) 
+                {
+                   boardStrings[i][j].setText("");
+                }
+            }
         });
 
         pane.add(aBoard, BorderLayout.CENTER);
@@ -106,7 +123,7 @@ public class SudokuGraphics
             {
                 boardStrings[i][j] = new JTextField(1);
                 boardStrings[i][j].setHorizontalAlignment(JTextField.CENTER);
-                aPanel.setPreferredSize(new Dimension(500, 500));
+                aPanel.setPreferredSize(new Dimension(1000, 1000));
 
                 if ((i / 3 + j / 3) % 2 == 0)
                 {

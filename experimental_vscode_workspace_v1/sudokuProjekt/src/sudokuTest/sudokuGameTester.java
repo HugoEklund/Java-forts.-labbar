@@ -109,7 +109,6 @@ class SudokuGameTester
 			for (int j = 0; j < sudokuBoard[i].length; j++) 
 			{
 				assertEquals(sudokuBoard[i][j], sudoku.get(i, j));
-				
 			}
 		}
 	}
@@ -118,14 +117,12 @@ class SudokuGameTester
 	void test() 
 	{
 		assertTrue(sudoku.solve());
-			
 	}
 	
 	@Test
 	void testLösTom()
 	{
 		assertTrue(sudoku.solve());
-			
 	}
 
 	@Test
