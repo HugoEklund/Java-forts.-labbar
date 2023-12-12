@@ -17,26 +17,12 @@ public class SudokuGame implements SudokuSolver
 	@Override
 	public void setBoard(int[][] board)
 	{
-//	    for (int i = 0; i < board.length; i++) {
-//	        for (int j = 0; j < board[i].length; j++) {
-//	        	
-//	        	if (board.length > 8 ||  board[i].length > 8) {
-//	        		throw new IllegalArgumentException ("Boarden får inte vara större än 9x9!");
-//	        		
-//	        	}
-//	        	
-//	            if (board[i][j] < 0 || board[i][j] > 9) {
-//	                throw new IllegalArgumentException("Bara värden 1-9: " + board[i][j]);
-//	            }
-//	        }
-//	    }
-		
 	    this.sudokuBoard = board;
 	}
+
 	   /**
      * Get a copy of the sudoku board
      */
-
 	@Override
 	public int[][] getBoard()
 	{
