@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import Sudoku.SudokuGame;
 
-class SudokuGameTester 
+class SudokuGameTester
 {
 	private SudokuGame sudoku;
 	private int [][] sudokuBoard;
@@ -19,11 +19,12 @@ class SudokuGameTester
 	}
 
 	@AfterEach
-	void tearDown() throws Exception 
+	void tearDown() throws Exception
 	{
 		sudoku.clear();
 		sudokuBoard= null;
 	}
+
 	@Test
 	void testKonstruktor() 
 	{
@@ -35,8 +36,9 @@ class SudokuGameTester
 			}
 		}
 	}
+	
 	@Test
-	void testSetBoard() 
+	void testSetBoard()
 	{
 		sudokuBoard [1][1] = 1;
 		sudokuBoard [4][5] = 2;
@@ -53,6 +55,7 @@ class SudokuGameTester
 			}
 		}	
 	}
+
 	@Test
 	void testGetBoard()
 	{
@@ -67,7 +70,6 @@ class SudokuGameTester
 			for (int j = 0; j < sudokuBoard[i].length; j++) 
 			{
 				assertEquals(sudokuBoard[i][j], sudoku.get(i, j));
-				
 			}
 		}	
 	}
@@ -76,6 +78,7 @@ class SudokuGameTester
 	void testSolve() 
 	{
 		assertTrue(sudoku.solve());
+		//sudoku.clear();
 		
 		sudoku.set(0, 0, 1);
 		assertTrue(sudoku.solve());
@@ -163,7 +166,6 @@ class SudokuGameTester
 		};
 		
 		sudoku.setBoard(board);
-		
 		assertTrue(sudoku.solve());
 	}
 

@@ -86,12 +86,11 @@ public class SudokuGame implements SudokuSolver
 		else
 		{
             // Case 2: If the current cell is already filled, check legality and move to the next cell
-			if (isLegal(row, col, sudokuBoard[row][col]))
+			if (!isLegal(row, col, sudokuBoard[row][col]))
 			{
-           		return true;
+           		return false;
 			}
-			sudokuBoard[row][col] = 0;
-			return recursiveSolve(col, row);
+			return recursiveSolve(nextRow, nextCol);
         }
 	}
 

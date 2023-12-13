@@ -69,9 +69,10 @@ public class SudokuGraphics
             }
 
             aGame.setBoard(boardInts);
-            aGame.solve();
+		
+            boolean solved = aGame.solve();
 
-            for (int i = 0; i < boardInts.length; i++) 
+            for (int i = 0; i < boardInts.length; i++)
             {
                 for (int j = 0; j < boardInts.length; j++) 
                 {
@@ -79,7 +80,7 @@ public class SudokuGraphics
                 }
             }
 
-            if (aGame.solve())
+            if (solved)
             {
                 JOptionPane.showMessageDialog(frame, "Det gick att lösa");
             }
