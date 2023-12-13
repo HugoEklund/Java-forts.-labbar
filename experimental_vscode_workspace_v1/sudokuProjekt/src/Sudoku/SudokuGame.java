@@ -99,7 +99,7 @@ public class SudokuGame implements SudokuSolver
 	{
 		for (int i = 0; i < 9; i++)
 		{
-	        if (sudokuBoard[row][i] == nbr && i != col) 
+	        if (sudokuBoard[row][i] == nbr && i != col)
 			{
 	            return false;
 	        }
@@ -107,7 +107,7 @@ public class SudokuGame implements SudokuSolver
 
 	    for (int i = 0; i < 9; i++) 
 		{
-	        if (sudokuBoard[i][col] == nbr && i != row) 
+	        if (sudokuBoard[i][col] == nbr && i != row)
 			{
 	            return false;
 	        }

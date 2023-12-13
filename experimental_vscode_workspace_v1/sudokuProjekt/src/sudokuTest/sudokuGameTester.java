@@ -78,7 +78,7 @@ class SudokuGameTester
 	void testSolve() 
 	{
 		assertTrue(sudoku.solve());
-		//sudoku.clear();
+		sudoku.clear();
 		
 		sudoku.set(0, 0, 1);
 		assertTrue(sudoku.solve());
