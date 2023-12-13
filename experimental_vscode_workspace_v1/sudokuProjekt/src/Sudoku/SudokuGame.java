@@ -90,7 +90,8 @@ public class SudokuGame implements SudokuSolver
 			{
            		return true;
 			}
-			return recursiveSolve(nextRow, nextCol);
+			sudokuBoard[row][col] = 0;
+			return recursiveSolve(col, row);
         }
 	}
 
@@ -99,7 +100,7 @@ public class SudokuGame implements SudokuSolver
 	{
 		for (int i = 0; i < 9; i++)
 		{
-	        if (sudokuBoard[row][i] == nbr) 
+	        if (sudokuBoard[row][i] == nbr && i != col) 
 			{
 	            return false;
 	        }
@@ -107,7 +108,7 @@ public class SudokuGame implements SudokuSolver
 
 	    for (int i = 0; i < 9; i++) 
 		{
-	        if (sudokuBoard[i][col] == nbr) 
+	        if (sudokuBoard[i][col] == nbr && i != row) 
 			{
 	            return false;
 	        }

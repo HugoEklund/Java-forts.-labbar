@@ -123,7 +123,7 @@ public class SudokuGraphics
             {
                 boardStrings[i][j] = new JTextField(1);
                 boardStrings[i][j].setHorizontalAlignment(JTextField.CENTER);
-                aPanel.setPreferredSize(new Dimension(1000, 1000));
+                aPanel.setPreferredSize(new Dimension(800, 800));
 
                 if ((i / 3 + j / 3) % 2 == 0)
                 {
