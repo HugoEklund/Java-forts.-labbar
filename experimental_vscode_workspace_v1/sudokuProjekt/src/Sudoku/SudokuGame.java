@@ -121,7 +121,7 @@ public class SudokuGame implements SudokuSolver
 		{
 	        for (int j = 0; j < 3; j++)
 			{
-	            if (sudokuBoard[kvadrantRad + i][kvadrantKol + j] == nbr)
+	            if (i != row && j != col && sudokuBoard[kvadrantRad + i][kvadrantKol + j] == nbr)
 				{
 	                return false;
 	            }
